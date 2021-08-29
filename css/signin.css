@@ -1,0 +1,16 @@
+.wrapper{
+    width:100vw;
+    height:100vh;
+    justify-content: center;
+    background-color:rgb(216, 228, 179);
+    background-image: linear-gradient(0deg, #99ffcc, #F5E9A9);
+}
+
+.imgbox{max-width:27.5em;background-color:#89b3e4;border-radius:1.5em 0 0 1.5em}
+.imgbox > img {width:27.5em;height:27.5em;object-fit:cover;transform:scale(0.5)}
+
+.signinbox{
+    background-color:white;
+    border-radius:1.5em;
+    box-shadow:0 1em 2em rgba(0,0,0,.3)
+}

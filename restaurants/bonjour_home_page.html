@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bonjour Brioche Bakery | Find My Food</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/img/foodtarget_logo.png">
+  </head>
+  <body>
+
+    <div class="flex mainbar">
+        <div>
+            <a href="/" title="Return to Home">
+              <img src="/img/foodtarget_logo.png" alt="" style="width:128px;height:128px;margin:16px">        
+              <img src="/img/FindMyFood_TextTransparent.png" alt="" id="logo" style="width:128px;height:128px;margin:16px">
+            </a>
+        </div>
+      <div style="width:min-content;text-align:right">
+        <a href="/ourMission/mission.html" id="mission" class=""><button type="button" name="button" id="mission_Button"
+          class="button_main">Our Mission</button></a>
+        <a href="/addnew" id="addrestbtn" class="hideOnload"><button type="button" name="button" id="AddRestaurant_Button" class="button_main">Add Your Restaurant</button></a>
+        <a href="/signin" id="signinbtn" class="hideOnload"><button type="button" name="button" id="SignIn_Button" class="button_main">Sign In / Register</button></a>
+        <div class="flex" style="width:max-content">
+          <div id="signintext" style="font-weight:bold;font-size:small;opacity:0.5"></div>
+          <button type="button" id="signoutbtn" class="button_main hideOnload" onclick="localStorage.removeItem('lastname');refreshSignin()">Sign Out</button>
+        </div>
+      </div>
+    </div>
+
+    <br><b><p1 onclick="window.history.back()" style="margin:1em;cursor:pointer;color:#2266ff">く back</p1></b>
+    <div class="card flex">
+      <img src="/img/cover_bonjourbrioche.webp">
+      <div style="width:calc(100% - 24em - 2em);margin:1em">
+        <h1 style="margin:0">Bonjour Brioche Bakery</h1>
+        <h2 style="margin:0">Rating: ★★★✩✩</h2>
+        <div class="flex tagsWrp">
+          <div class="tags">Bread</div>
+          <div class="tags">Baguette</div>
+          <div class="tags">Bakery</div>
+          <div class="tags">Sub</div>
+          <div class="tags">Hoagie</div>
+          <div class="tags">Sandwich</div>
+        </div>
+        <h5 style="margin:0.5em 0">Address:  812 Queen St E, Toronto, ON M4M 1H7, Canada</h5>
+        <h5 style="margin:0.5em 0">Phone: +1 416-406-1250</h5>
+        <h5 style="margin:0.5em 0">Hours: Closes 2 PM</h5>
+        <a href="https://bonjourbrioche.com/">
+          <button class="button_main" type="button">Website</button>
+        </a>
+      </div>
+
+      <iframe
+      width="100%"
+      height="450"
+      style="border:0"
+      loading="lazy"
+      allowfullscreen
+      src="https://www.google.com/maps/embed/v1/place?q=812 Queen St E, Toronto, ON M4M 1H7, Canada&key=AIzaSyDOXG-MWad_omdGrzXykZsr83dJAf_C2B4">
+    </iframe>
+      
+    </div>
+
+    <script src="/js/signin.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Your Restaurants | Find My Food</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/img/foodtarget_logo.png">
+  </head>
+  <body>
+
+    <div class="flex mainbar">
+        <div>
+          <a href="/" title="Return to Home">
+            <img src="/img/foodtarget_logo.png" alt="" style="width:128px;height:128px;margin:16px">        
+            <img src="/img/FindMyFood_TextTransparent.png" alt="" id="logo" style="width:128px;height:128px;margin:16px">
+          </a>
+        </div>
+      <div style="width:min-content;text-align:right">
+        <a href="/ourMission/mission.html" id="mission" class=""><button type="button" name="button" id="mission_Button"
+          class="button_main">Our Mission</button></a>
+        <a href="/addnew" id="addrestbtn" class="hideOnload"><button type="button" name="button" id="AddRestaurant_Button" class="button_main">Add Your Restaurant</button></a>
+        <a href="/signin" id="signinbtn" class="hideOnload"><button type="button" name="button" id="SignIn_Button" class="button_main">Sign In / Register</button></a>
+        <div class="flex" style="width:max-content">
+          <div id="signintext" style="font-weight:bold;font-size:small;opacity:0.5"></div>
+          <button type="button" id="signoutbtn" class="button_main hideOnload"  onclick="localStorage.removeItem('lastname');refreshSignin();">Sign Out</button> 
+          
+          
+
+
+          
+
+          
+        </div>
+      </div>
+    </div>
+    
+    <script src="/js/signin.js" defer></script>
+
+    <h1>Your Restaurants: </h1>
+    <div id="content">
+
+    </div>
+    <script type="text/javascript">
+    document.getElementById('content').innerHTML = '';
+
+    JSON.parse(localStorage.getItem("myRest")).forEach(jsonX => {
+
+      var tagHTML = '';
+      jsonX.tag.split(' ').forEach(tagX => tagHTML += `<div class="tags">` + tagX + `</div>`)
+
+      document.getElementById('content').innerHTML += `
+      <div class="card">
+        <h1 style="margin:0">` + jsonX.name + `</h1>
+        <div class="flex tagsWrp">` + tagHTML + `</div>
+        <h5 style="margin:0.5em 0">Address: ` + jsonX.address + `</h5>
+        <h5 style="margin:0.5em 0">Phone: ` + jsonX.number + `</h5>
+        <h5 style="margin:0.5em 0">Hours: ` + jsonX.hours + ` to ` + jsonX.hoursX + `</h5>
+        <a href="` + jsonX.website + `">
+          <button class="button_main" type="button">Website</button>
+        </a>
+      </div>`
+
+    })
+
+    //var name = localStorage.getItem("restaurantname");
+    //var tags = localStorage.getItem("restauranttag");
+    //var address = localStorage.getItem("restaurantaddress");
+    //var number = localStorage.getItem("restaurantnumber");
+    //var hours = localStorage.getItem("restauranthours");
+    //var website = localStorage.getItem("restaurantwebsite");
+
+    //for (let i = 0; i < tag.for(); i++) 
+    
+    //var array = tags.split(" ");
+
+    //console.log(array);
+
+    //var tagHTML = '';
+    //jsonX.tags.split(' ').forEach(tag => tagHTML += `<div class="tags">` + tag + `</div>`)
+
+
+
+      //document.getElementById('restautantName').innerHTML = name;
+      //document.getElementById('restautantName').innerHTML += tag;
+      //document.getElementById('restautantName').innerHTML += address;
+      //document.getElementById('restautantName').innerHTML += number;
+      //document.getElementById('restautantName').innerHTML += hours;
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Add Your Restaurant | Find My Food</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/signin.css">
+  <link rel="icon" href="/img/foodtarget_logo.png">
+</head>
+
+<body>
+  <div class="flex wrapper">
+    <div class="flex signinbox">
+      <div class="imgbox">
+        <img src="/img/foodtarget_logo.png">
+      </div>
+      <div style="padding:1.5em">
+        <b><p1 onclick="window.history.back()" style="cursor:pointer;color:#2266ff">く back</p1></b>
+
+
+        <h1 style="margin:0.25em">Add Your Restaurant</h1>
+        <label for="name">Restaurant Name: </label>
+        <input type="text" class="input_main" id="name"><br>
+
+        
+        <label for="tag">Food Tag (press space to separate tags): </label>
+        <input type="text" class="input_main" id="tag"><br>
+        
+
+        <label for="address">Address: </label>
+        <input type="text" class="input_main" id="address"><br>
+
+
+        <label for="telenum">Telephone Number: </label>
+        <input type="tel" class="input_main" id="telenum"><br>
+
+
+        <label for="hours">Working Hours: </label>
+        <input type="time" class="input_main" id="hours"> to <input type="time" class="input_main" id="hoursX"><br>
+
+
+        <label for="website">Website URL: </label>
+        <input type="url" class="input_main" id="website"><br>
+
+        <!--<label for="image_restuarant">Your company Image: </label>
+        <input type="file" class="input_main" accept="image/*"><br>-->
+
+       
+
+        
+
+
+<br><button type="button" class="button_main" onclick="restaurant_tag(tag)" onchange="preview_image(event)">Submit</button>
+
+<script type="text/javascript">
+
+function preview_image(event) 
+{
+ var reader = new FileReader();
+ reader.onload = function()
+ {
+  var output = document.getElementById('output_image');
+  output.src = reader.result;
+ }
+ reader.readAsDataURL(event.target.files[0]);
+}
+
+  function restaurant_tag(){
+
+    var name_r = document.getElementById('name').value;
+    
+    var jsonX = {};
+
+    jsonX.name = document.getElementById('name').value;
+    jsonX.tag = document.getElementById('tag').value;
+    jsonX.address = document.getElementById('address').value;
+    jsonX.number = document.getElementById('telenum').value;
+    jsonX.hours = document.getElementById('hours').value;
+    jsonX.hoursX = document.getElementById('hoursX').value;
+    jsonX.website = document.getElementById('website').value; 
+
+    if (localStorage.getItem("myRest") == null) {
+      localStorage.setItem("myRest", JSON.stringify([jsonX]))
+    } else {
+      var X = JSON.parse(localStorage.getItem("myRest"));
+      X.push(jsonX);
+      localStorage.setItem("myRest", JSON.stringify(X));
+    }
+
+  //localStorage.setItem("restaurantname", name_r);
+  //localStorage.setItem("restauranttag", document.getElementById('tag').value);
+  //localStorage.setItem("restaurantaddress", document.getElementById('address').value);
+  //localStorage.setItem("restaurantnumber", document.getElementById('telenum').value);
+  //localStorage.setItem("restauranthours", document.getElementById('hours').value);
+  //localStorage.setItem("restauranthoursX", document.getElementById('hoursX').value);
+  //localStorage.setItem("restaurantwebsite", document.getElementById('website').value);  
+
+    alert("Your restaurant name is " +name_r + ". \n" + "Click OK to go to your personal restaurant page.");
+    window.location.href ="/profile/your_restaurants.html";
+
+    //for(let i = 0; i < tags_r.length(); i++){
+      //console.log(tags_r);
+    //}
+    
+  }
+
+  
+  </script>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

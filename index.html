@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Home | Find My Food</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/search.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" href="/img/foodtarget_logo.png">
+</head>
+
+<body>
+
+  <div class="flex mainbar">
+    <div>
+      <a href="/" title="Return to Home">
+        <img src="/img/foodtarget_logo.png" alt="" style="width:128px;height:128px;margin:16px">        
+        <img src="/img/FindMyFood_TextTransparent.png" alt="" id="logo" style="width:128px;height:128px;margin:16px">
+      </a>
+    </div>
+    <div style="width:min-content;text-align:right">
+      <a href="/ourMission/mission.html" id="mission" class=""><button type="button" name="button" id="mission_Button"
+        class="button_main">Our Mission</button></a>
+      <a href="/addnew" id="addrestbtn" class="hideOnload"><button type="button" name="button" id="AddRestaurant_Button"
+          class="button_main">Add Your Restaurant</button></a>
+      <a href="/signin" id="signinbtn" class="hideOnload"><button type="button" name="button" id="SignIn_Button"
+          class="button_main">Sign In / Register</button></a>
+      <div class="flex" style="width:max-content">
+        <div id="signintext" style="font-weight:bold;font-size:small;opacity:0.5"></div>
+        <button type="button" id="signoutbtn" class="button_main hideOnload"
+           onclick="localStorage.removeItem('lastname');refreshSignin()">Sign Out</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex autocomplete" style="justify-content:center">
+    <div class="autocomplete">
+      <input id="myInput" type="text" name="myCountry" placeholder="What food do you like?">
+    </div>
+    <div class="autocomplete">
+      <input id="myInput2" type="text" name="myLocation" placeholder="Where are you?">
+    </div>
+    <button class="button_main" type="button" onclick="render_Search(document.getElementById('myInput').value, document.getElementById('myInput2').value, document.getElementById('recommend'), document.getElementById('result'))">Search</button>
+  </div>
+
+  <div id="recommend">
+  <h1 style="margin:0.25em 1em;text-align:center">Today's Recommendations</h1>
+
+  <div class="flex covercard">
+
+    <a href="/restaurants/nino_x_home_page.html">
+      <div class="card">
+        <img src="/img/cover_pizza.jpg">
+        <h3>Nino D'Aversa Bakery</h3>
+        <div class="flex tagsWrp">
+          <div class="tags">Italian</div>
+          <div class="tags">Pizza</div>
+          <div class="tags">Bakery</div>
+        </div>
+        <h5>🕙 Open til 7:00pm</h5>
+        <h5>📱 (416) 638-3271<h5>
+      </div>
+    </a>
+
+    <div class="card">
+      <img src="/img/cover_india.jpg">
+      <h3>Little India Restaurant</h3>
+      <div class="flex tagsWrp">
+        <div class="tags">Indian</div>
+      </div>
+      <h5>🕙 Open til 7:30pm</h5>
+      <h5>📱 1-416-205-9836</h5>
+    </div>
+
+    <div class="card">
+      <img src="/img/cover_japan.jpg">
+      <h3>SHINOBU</h3>
+      <div class="flex tagsWrp">
+        <div class="tags">Japanese</div>
+        <div class="tags">Sushi</div>
+        <div class="tags">Fish</div>
+      </div>
+      <h5>🕙 Open til 9:00pm</h5>
+      <h5>📱 1-416-830-0741</h5>
+    </div>
+
+    <div class="card">
+      <img src="/img/cover_BrodflourBakkery.jpg">
+      <h3>Brodflour Bakery</h3>
+      <div class="flex tagsWrp">
+        <div class="tags">Bakery</div>
+      </div>
+      <h5>🕙 Open til 10:30pm</h5>
+      <h5>📱 1-800-69-27753</h5>
+    </div>
+
+  </div>
+  </div>
+
+  <div id="result">
+
+  </div>
+
+ 
+
+
+  <script src="/js/signin.js" defer></script>
+  <script src="/js/search.js" defer></script>
+  <script src="/js/render_search.js" defer></script>
+
+</body>
+
+</html>
